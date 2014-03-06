@@ -1,0 +1,62 @@
+body {
+	padding-top: 1.5em !important;
+}
+.admin-panel * {
+	font-size: 12px !important;
+	font-family: arial !important;
+	line-height: 1.1em !important;
+}
+.admin-panel h3 {
+	margin: 0 !important;
+}
+.admin-panel,
+.admin-panel .debug ul {
+	background: #CCC;
+	border-bottom: 1px solid #333;
+}
+.admin-panel {
+	line-height: 1.5em;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.admin-panel li {
+	border-right: 1px solid #AAA;
+	border-left: 1px solid #EEE;
+	float: left;
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	position: relative;
+}
+.admin-panel li span,
+.admin-panel li h3,	/**  For the h3 that appears in Debug  **/
+.admin-panel li a {
+	display: inline-block;
+	padding: 2px 5px !important;
+}
+.admin-panel .debug:hover ul {
+	display: block;
+}
+.admin-panel .debug > ul {
+	display: none;
+	font-size: 0.85em;
+	left: 0;
+	line-height: 1em;
+	position: absolute;
+	top: 100%;
+	max-height: 200px;
+	overflow-y: auto;
+}
+.admin-panel .debug ul li {
+	border-bottom: 1px solid #333;
+	float: none;
+	font-weight: bold;
+	padding: 1px 2px;
+	white-space: nowrap;
+}
+.admin-panel pre {
+	font-weight: normal;
+	margin: 0 0 2px 5px !important;
+}
