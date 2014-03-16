@@ -1,0 +1,19 @@
+{
+	"name": "oilee80/silverstripe-admin-panel",
+	"description": "SilverStripe front end admin bar module",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "admin"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Lee Bradley",
+			"email": "bradley.lee80@googlemail.com"
+		}
+	],
+	"require": {
+		"silverstripe/framework": "3.*"
+	},
+	"extra": {
+		"installer-name": "admin-panel"
+	}
+}
