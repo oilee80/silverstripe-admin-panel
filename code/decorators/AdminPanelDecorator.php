@@ -2,7 +2,31 @@
 
 class AdminPanelDecorator extends DataExtension {
 
-	private $page;
+	/**
+	 * Version of jQuery that will be used with the Admin Panel
+	 * @const String
+	 */
+	const JQUERY_VERSION = '1.11.1';
+
+	/**
+	 * @var Boolean
+	 */
+	private static $includeJQuery = true;
+
+	/**
+	 * @param Boolean $val
+	 */
+	public static function setIncludeJQuery( $val ) {
+		static::$includeJQuery = (bool)$val;
+	}
+
+	/**
+	 * Returns '.min' if in Dev mode, this is allows for easier dubugging
+	 * @return String
+	 */
+	public static function getJQueryType() {
+		return Director::isDev( true ) ? '' : '.min';
+	}
 
 	public function AdminPanel() {
 
@@ -16,13 +40,14 @@ class AdminPanelDecorator extends DataExtension {
 			return;
 		}
 
-		$this->page = $this->owner;
-
-		if( !$this->page )
+		if( !$this->owner )
 			return;
 		$moduleDir = basename( dirname( dirname( dirname( __FILE__ ) ) ) );
 		Requirements::css( $moduleDir . '/css/css.css' );
-		return $this->page->renderWith( 'AdminPanel' );
+		Requirements::javascript( $moduleDir . '/js/build/admin-panel.js' );
+		if( static::$includeJQuery )
+			Requirements::javascript( sprintf( '//ajax.googleapis.com/ajax/libs/jquery/%s/jquery%s.js', AdminPanelDecorator::JQUERY_VERSION, static::getJQueryType() ) );
+		return $this->owner->renderWith( 'AdminPanel' );
 	}
 
 	/**
@@ -38,7 +63,7 @@ class AdminPanelDecorator extends DataExtension {
 	 * @return String
 	 */
 	public function getAdminPanelStageLink() {
-		return Controller::join_links($this->page->AbsoluteLink(), '?stage=Stage');
+		return Controller::join_links($this->owner->AbsoluteLink(), '?stage=Stage');
 	}
 
 	/**
@@ -46,7 +71,7 @@ class AdminPanelDecorator extends DataExtension {
 	 * @return String
 	 */
 	public function getAdminPanelLiveLink() {
-		return Controller::join_links($this->page->AbsoluteLink(), '?stage=Live');
+		return Controller::join_links($this->owner->AbsoluteLink(), '?stage=Live');
 	}
 
 	/**
@@ -54,7 +79,7 @@ class AdminPanelDecorator extends DataExtension {
 	 * @return String
 	 */
 	public function getAdminPanelCMSLink() {
-		return Controller::join_links( singleton('CMSPageEditController')->Link("show"), $this->page->ID);
+		return Controller::join_links( singleton('CMSPageEditController')->Link("show"), $this->owner->ID);
 	}
 
 	/**

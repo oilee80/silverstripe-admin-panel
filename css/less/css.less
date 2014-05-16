@@ -1,0 +1,139 @@
+/*************************
+**  **
+*************************/
+@-admin-panel-gradient-start: #EEEEEE;
+@-admin-panel-gradient-end: #CCCCCC;
+@-admin-panel-panel-height: 25px;
+@-admin-panel-top-link-color: #333;
+@-admin-panel-top-item-border-left: 1px solid #CCCCCC;
+@-admin-panel-top-item-border-right: 1px solid #EEEEEE;
+
+body:not(.admin-panel-loaded),	/* Fallback for failed JS */
+body.admin-panel-open {	/* JS opened */
+	padding-top: @-admin-panel-panel-height !important;
+}
+
+.admin-panel {
+	height: @-admin-panel-panel-height;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	&>ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		&>li {
+			border-left: @-admin-panel-top-item-border-left;
+			border-right: @-admin-panel-top-item-border-right;
+			float: left;
+			margin: 0;
+			padding: 0;
+
+			&>span,
+			&>h3,
+			&>a {
+				line-height: @-admin-panel-panel-height;
+				padding: 0 0.5em;
+				display: block;
+			}
+			&>a {
+				color: @-admin-panel-top-link-color;
+
+				&:hover {
+					background-color: @-admin-panel-gradient-start;
+					background-repeat: repeat-x;
+					background-image: -khtml-gradient(linear, left top, left bottom, from(@-admin-panel-gradient-end), to(@-admin-panel-gradient-start)); // Konqueror
+					background-image: -moz-linear-gradient(top, @-admin-panel-gradient-end, @-admin-panel-gradient-start); // FF 3.6+
+					background-image: -ms-linear-gradient(top, @-admin-panel-gradient-end, @-admin-panel-gradient-start); // IE10
+					background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @-admin-panel-gradient-end), color-stop(100%, @-admin-panel-gradient-start)); // Safari 4+, Chrome 2+
+					background-image: -webkit-linear-gradient(top, @-admin-panel-gradient-end, @-admin-panel-gradient-start); // Safari 5.1+, Chrome 10+
+					background-image: -o-linear-gradient(top, @-admin-panel-gradient-end, @-admin-panel-gradient-start); // Opera 11.10
+					background-image: linear-gradient(top, @-admin-panel-gradient-end, @-admin-panel-gradient-start); // The standard
+					filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@-admin-panel-gradient-start,@-admin-panel-gradient-end)); // IE9 and down
+				}
+			}
+			&:hover>ul {
+				display: block;
+			}
+			&.debug-record ul {
+				border-left: 1px solid #000;
+				border-right: 1px solid #000;
+				border-bottom: 1px solid #000;
+				background: #FFF;
+				font-size: 0.8em;
+				line-height: 1.15em;
+				overflow-y: scroll;
+
+				li {
+					border-top: 1px solid #CCC;
+					padding: 5px;
+					pre {
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+		ul {
+			display: none;
+			height: 90%;
+			margin: 0 50px;
+			position: fixed;
+			left: 0;
+			top: @-admin-panel-panel-height;
+		}
+
+	}
+}
+body.admin-panel-loaded .admin-panel,
+body.admin-panel-loaded .admin-panel-toggle {
+	background-color: @-admin-panel-gradient-end;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(@-admin-panel-gradient-start), to(@-admin-panel-gradient-end)); // Konqueror
+	background-image: -moz-linear-gradient(top, @-admin-panel-gradient-start, @-admin-panel-gradient-end); // FF 3.6+
+	background-image: -ms-linear-gradient(top, @-admin-panel-gradient-start, @-admin-panel-gradient-end); // IE10
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @-admin-panel-gradient-start), color-stop(100%, @-admin-panel-gradient-end)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, @-admin-panel-gradient-start, @-admin-panel-gradient-end); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, @-admin-panel-gradient-start, @-admin-panel-gradient-end); // Opera 11.10
+	background-image: linear-gradient(top, @-admin-panel-gradient-start, @-admin-panel-gradient-end); // The standard
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@-admin-panel-gradient-start,@-admin-panel-gradient-end)); // IE9 and down
+}
+body.admin-panel-loaded {	/* JS Loaded */
+	.admin-panel {
+		top: -@-admin-panel-panel-height;
+	}
+
+	.admin-panel-toggle {
+		border-radius: 6px;
+		cursor: pointer;
+		height: ( @-admin-panel-panel-height * 2 );
+		padding: 3px;
+		position: fixed;
+		text-indent: -999em;
+		top: ( @-admin-panel-panel-height + 5px );
+		right: 5px;
+		width: ( @-admin-panel-panel-height * 2 );
+		&:after {
+			content: ' ';
+			background-image: url( 'assets/down_Arrow.png' );
+			background-size: cover;
+			bottom: 3px;
+			left: 2px;
+			opacity: 0.8;
+			position: absolute;
+			right: 2px;
+			top: 3px;
+		}
+	}
+
+	&.admin-panel-open {
+		.admin-panel {
+			top: 0;
+		}
+		.admin-panel-toggle:after {
+			background-image: url( 'assets/up_Arrow.png' );
+		}
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "silverstripe-admin-panel",
+  "version": "0.0.1",
+  "main": "Gruntfile.js",
+  "author": "Lee Bradley",
+  "description": "Silverstripe Admin Panel",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:oilee80/silverstripe-admin-panel.git"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-shell": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-karma": "*",
+    "matchdep": "*",
+    "grunt-notify": "*"
+  }
+}
