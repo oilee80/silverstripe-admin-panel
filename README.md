@@ -22,3 +22,10 @@ Place the code below somewhere between the body tags, most likly at the end
 //  template/Page.ss
 $AdminPanel
 ```
+
+## Attributation
+
+The Clipart used was adapted from the following sources
+
+http://openclipart.org/detail/77047/house-line-art-by-gammillian
+http://openclipart.org/detail/28802/arrow-by-purzen

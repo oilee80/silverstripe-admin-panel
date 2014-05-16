@@ -1,7 +1,7 @@
 {
 	"name": "oilee80/silverstripe-admin-panel",
 	"description": "SilverStripe front end admin bar module",
-	"version": "1.0.0-RC",
+	"version": "1.0.0-RC2",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "admin"],
 	"license": "BSD-3-Clause",
