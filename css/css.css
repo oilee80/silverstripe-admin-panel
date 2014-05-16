@@ -12,6 +12,8 @@ body.admin-panel-open {
   position: fixed;
   top: 0;
   width: 100%;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
 }
 .admin-panel > ul {
   list-style: none;
@@ -89,6 +91,8 @@ body.admin-panel-loaded .admin-panel-toggle {
 }
 body.admin-panel-loaded {
   /* JS Loaded */
+  -webkit-transition: padding-top 0.5s;
+  transition: padding-top 0.5s;
 }
 body.admin-panel-loaded .admin-panel {
   top: -25px;
@@ -100,9 +104,11 @@ body.admin-panel-loaded .admin-panel-toggle {
   padding: 3px;
   position: fixed;
   text-indent: -999em;
-  top: 30px;
+  top: 5px;
   right: 5px;
   width: 50px;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
 }
 body.admin-panel-loaded .admin-panel-toggle:after {
   content: ' ';
@@ -114,11 +120,17 @@ body.admin-panel-loaded .admin-panel-toggle:after {
   position: absolute;
   right: 2px;
   top: 3px;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
 }
 body.admin-panel-loaded.admin-panel-open .admin-panel {
   top: 0;
 }
+body.admin-panel-loaded.admin-panel-open .admin-panel-toggle {
+  top: 30px;
+}
 body.admin-panel-loaded.admin-panel-open .admin-panel-toggle:after {
-  background-image: url('assets/up_Arrow.png');
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 /*# sourceMappingURL=css.css.map */
