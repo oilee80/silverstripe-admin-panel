@@ -14,6 +14,7 @@ body.admin-panel-open {
   width: 100%;
   -webkit-transition: top 0.5s;
   transition: top 0.5s;
+  z-index: 99999;
 }
 .admin-panel > ul {
   list-style: none;

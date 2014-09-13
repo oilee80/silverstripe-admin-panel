@@ -9,9 +9,11 @@
 			<li class="live-link"><a href="$AdminPanelLiveLink" title="<%t ADMIN_PANEL.Template.Live "Live" %>"><%t ADMIN_PANEL.Template.Live "Live" %></a></li>
 		<% end_if %>
 		<li class="cms-link"><a target="admin_page" href="$AdminPanelCMSLink" title="<%t ADMIN_PANEL.Template.EditPage "Edit Page" %>"><%t ADMIN_PANEL.Template.EditPage "Edit Page" %></a></li>
-		<li class="debug-record">
-			$Debug
-		</li>
+		<% if ShowAdminDebug %>
+			<li class="debug-record">
+				$Debug
+			</li>
+		<% end_if %>
 		<% if ExtraAdminPanelLinks %>
 			<% loop ExtraAdminPanelLinks %>
 				<li class="$CSSClassName">

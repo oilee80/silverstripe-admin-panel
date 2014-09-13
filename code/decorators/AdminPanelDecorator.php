@@ -28,6 +28,13 @@ class AdminPanelDecorator extends DataExtension {
 		return Director::isDev( true ) ? '' : '.min';
 	}
 
+	public function getShowAdminDebug()
+	{
+		$show = Director::isDev();
+		$this->owner->extend('updateShowAdminDebug', $show);
+		return $show;
+	}
+
 	public function AdminPanel() {
 
 		// Does the user have access to the CMS?
