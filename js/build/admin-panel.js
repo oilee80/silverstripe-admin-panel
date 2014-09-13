@@ -1,4 +1,4 @@
-/*! Silverstripe Admin Panel - Lee Bradley - Built 2014-05-17 */
+/*! Silverstripe Admin Panel - Lee Bradley - Built 2014-09-13 */
 var adminPanel = {
 	selector: '#silverstripeAdminPanel',
 	openText: 'Open admin panel',
@@ -52,6 +52,6 @@ var adminPanel = {
 	}
 };
 
-(function( window, $ ){
+jQuery(document).ready(function( window, $ ){
 	adminPanel._init($);
 }( window, jQuery, undefined ));

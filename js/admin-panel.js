@@ -51,6 +51,6 @@ var adminPanel = {
 	}
 };
 
-(function( window, $ ){
+jQuery(document).ready(function( window, $ ){
 	adminPanel._init($);
 }( window, jQuery, undefined ));
