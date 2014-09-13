@@ -31,6 +31,9 @@ class AdminPanelDecorator extends DataExtension {
 	public function getShowAdminDebug()
 	{
 		$show = Director::isDev();
+		if (!$show) {
+			$show = Controller::curr()->getRequest()->getVar('show_debug');
+		}
 		$this->owner->extend('updateShowAdminDebug', $show);
 		return $show;
 	}
