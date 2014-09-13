@@ -23,6 +23,10 @@ Place the code below somewhere between the body tags, most likly at the end
 $AdminPanel
 ```
 
+### Note
+
+There is an extra parameter `?show_debug=1` that you can pass in via URL, this will add $Debug to the panel 
+
 ## Attributation
 
 The Clipart used was adapted from the following sources
