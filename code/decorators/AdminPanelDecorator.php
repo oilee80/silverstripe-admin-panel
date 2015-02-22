@@ -55,10 +55,20 @@ class AdminPanelDecorator extends DataExtension {
 		$moduleDir = basename( dirname( dirname( dirname( __FILE__ ) ) ) );
 		Requirements::css( $moduleDir . '/css/css.css' );
 		Requirements::javascript( $moduleDir . '/js/build/admin-panel.js' );
-		if( static::$includeJQuery ) {
+		if( static::$includeJQuery && !$this->jQueryAlreadyIncluded()) {
 			Requirements::javascript( sprintf( '//ajax.googleapis.com/ajax/libs/jquery/%s/jquery%s.js', AdminPanelDecorator::JQUERY_VERSION, static::getJQueryType() ) );
 		}
 		return $this->owner->renderWith( 'AdminPanel' );
+	}
+
+	protected function jQueryAlreadyIncluded()
+	{
+		foreach(Requirements::backend()->get_javascript() As $script) {
+			if (preg_match('/jquery/i', $script)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
